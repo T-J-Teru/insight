@@ -247,15 +247,6 @@ cleanup_init (void *ignore)
   gdbtk_interp = NULL;
 }
 
-/* Come here during long calculations to check for GUI events.  Usually invoked
-   via the QUIT macro.  */
-
-void
-gdbtk_interactive (void)
-{
-  /* Tk_DoOneEvent (TK_DONT_WAIT|TK_IDLE_EVENTS); */
-}
-
 /* Start a timer which will keep the GUI alive while in target_wait. */
 void
 gdbtk_start_timer (void)
