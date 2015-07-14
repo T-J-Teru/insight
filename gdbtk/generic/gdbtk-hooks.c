@@ -88,7 +88,6 @@ static char *gdbtk_readline (const char *);
 static void gdbtk_readline_begin (char *format,...);
 static void gdbtk_readline_end (void);
 static void gdbtk_pre_add_symbol (const char *);
-static void gdbtk_print_frame_info (struct symtab *, int, int, int);
 static void gdbtk_post_add_symbol (void);
 static void gdbtk_register_changed (struct frame_info *frame, int regno);
 static void gdbtk_memory_changed (struct inferior *inferior, CORE_ADDR addr,
@@ -133,7 +132,6 @@ gdbtk_add_hooks (void)
   deprecated_readline_hook = gdbtk_readline;
   deprecated_readline_end_hook = gdbtk_readline_end;
 
-  deprecated_print_frame_info_listing_hook = gdbtk_print_frame_info;
   deprecated_query_hook = gdbtk_query;
   deprecated_warning_hook = gdbtk_warning;
 
@@ -680,12 +678,6 @@ gdbtk_query (const char *query, va_list args)
   return val;
 }
 
-
-static void
-gdbtk_print_frame_info (struct symtab *s, int line,
-			int stopline, int noerror)
-{
-}
 
 /*
  * gdbtk_trace_find
